@@ -13,7 +13,7 @@ In this work, we aim at detecting for a crash report its candidate near-duplicat
 - Moroo et al. [[Paper](http://ksiresearch.org/seke/seke17paper/seke17paper_135.pdf)]
 - TraceSIM [[Paper](https://arxiv.org/pdf/2009.12590.pdf)]
 
-![test](code/Images/Test-Phase.png)
+![test](code/Images/Images-paper/Test-Phase.png)
 
 ## How to use this code?
 1. Clone this repository using: ```git clone https://github.com/anony2023/DeepLSH.git ```
