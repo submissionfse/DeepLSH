@@ -25,16 +25,13 @@ Our contribution is three-fold.
 
 ![contrib](code/Images/Images-paper/DeepLSH%20model.png)
 
-
-## How DeepLSH works? 
-
-![test](code/Images/Images-paper/Test-Phase.png)
-
 ## How to use this code?
 1. Clone this repository using: ```git clone https://github.com/anony2023/DeepLSH.git ```
 2. Install the required python packages: ```pip install -r ./code/requirements.txt ```
 3. Run the notebooks in code/notebooks/measure:
     * measure-DeepLSH.ipynb : the end-to-end procedure to train/test and validate DeepLSH
-    * measure-Baseline.ipynb: the end-to-end procedure to train/test and validate the Baseline
-    * measure-Runtime.ipynb : comparison between the required runtime for DeepLSH vs. brute force
+    * measure-Baseline.ipynb: the end-to-end procedure to train/test and validate the CNHH+LSH baseline
+    * measure-MinHash.ipynb (for Jaccard [boW / N-grams]): the end-to-end procedure to run MinHash
+    * measure-SimHash.ipynb (for Cosine [boW / N-grams / TF-IDF]): the end-to-end procedure to run SimHash
+    * measure-Runtime.ipynb : comparison between the required runtime for DeepLSH vs. CNNH+LSH vs. KNN-based approach
 
