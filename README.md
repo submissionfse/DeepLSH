@@ -4,7 +4,7 @@
 Automatic crash bucketing is a critical step in the software development process to efficiently analyze and triage bug reports. It generally consists in grouping similar reports through clustering techniques. However, with real-time streaming bug collection, systems are needed to quickly answer the question: ***What are the most similar bugs to a new one?*** that is, efficiently find its "near-duplicates". Many stack trace based-similarity metrics have been proposed to compute the similarity between stack-traces (the only information availaible for debugging and reproducing crash reports). These measures are generally embedded in clustering algorithms but this comes with several drawbacks: First, it needs numerous similarity calculations when assigning a new stack trace to a cluster. Second, clusters are not stable over time and should be recalculated frequently without loosing links to actual bug tickets that have been previously created. It can also be difficult to set the various parameters that need to be tuned. On the other hand, searching for exact nearest neighbors is computationally demanding and generally infeasible.   
 
 ## Overview
-In this work, we aim at detecting for a crash report its candidate near-duplicates (i.e., similar crashes that are likely to be induced by the same software bug) in a large database of historical crashes and given any similarity measure dedicated to compare between stack traces. To this end, we propose **DeepLSH** a deep Siamese hash coding neural network that learns to approximate the locality-sensitive property to provide binary hash codes aiming to locate the most similar stack traces into hash buckets as shown in the Figure . **DeepLSH** have been conducted on a large stack trace dataset and performed on state-of-the-art similarity measures proposed to tackle the crash deduplication problem:
+In this work, we aim at detecting for a crash report its candidate near-duplicates (i.e., similar crashes that are likely to be induced by the same software bug) in a large database of historical crashes and given any similarity measure dedicated to compare between stack traces. To this end, we propose **DeepLSH** a deep Siamese hash coding neural network based on Locality-Sensitive Hashing (LSH) property in order to provide binary hash codes aiming to locate the most similar stack traces into hash buckets. **DeepLSH** have been conducted on a large stack trace dataset and performed on state-of-the-art similarity measures proposed to tackle the crash deduplication problem:
 - Jaccard coefficient [[Ref](https://en.wikipedia.org/wiki/Jaccard_index)]
 - Cosine similarity [[Ref](https://en.wikipedia.org/wiki/Sine_and_cosine)]
 - Lucene TF-IDF [[Ref](https://lucene.apache.org/core/7_6_0/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html)]
@@ -16,7 +16,12 @@ In this work, we aim at detecting for a crash report its candidate near-duplicat
 - Moroo et al. [[Paper](http://ksiresearch.org/seke/seke17paper/seke17paper_135.pdf)]
 - TraceSIM [[Paper](https://arxiv.org/pdf/2009.12590.pdf)]
 
-## Contributions and Main Findings
+## Contributions
+
+Our contribution is three-fold. 
+(i) Aiming to overcome the problem of deriving LSH functions for stack-trace similarity measures, we propose a generic approach dubbed DeepLSH that learns and provides a family of binary hash functions that perfectly approximate the locality-sensitive property to retrieve efficiently and rapidly near-duplicate stack traces. 
+(ii) Technically, we design a deep Siamese neural network architecture to perform end-to-end hashing with an original objective loss function based on the locality-sensitive property preserving with appropriate regularizations to cope with the binarization problem of optimizing non-smooth loss functions. 
+(iii) We demonstrate through our experimental study the effectiveness and scalability of DeepLSH to yield near-duplicate crash reports under a dozen of similarity metrics. We successfully compare to standard LSH techniques (MinHash and SimHash), and the most relevant deep hashing baselineon a large real-world dataset that we make available.
 
 ## How DeepLSH works? 
 
