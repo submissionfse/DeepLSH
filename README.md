@@ -1,4 +1,7 @@
-# DeepLSH: Deep Locality-Sensitive Hash Learning for Fast Near Duplicate Crash Report Detection
+# DeepLSH: Deep Locality-Sensitive Hash Learning for Fast and Efficient Near-Duplicate Crash Report Detection
+
+## Motivation
+Automatic crash bucketing is a crucial phase in the software development process for efficiently triaging bug reports. It generally consists in grouping similar reports through clustering techniques. However, with real-time streaming bug collection, systems are needed to quickly answer the question: \textit{What are the most similar bugs to a new one?},
 
 ## Overview
 In this work, we aim at detecting for a crash report its candidate near-duplicates (i.e., similar crashes that are likely to be induced by the same software bug) in a large database of historical crashes and given any similarity measure dedicated to compare between stack traces. To this end, we propose **DeepLSH** a deep Siamese hash coding neural network that learns to approximate the locality-sensitive property to provide binary hash codes aiming to locate the most similar stack traces into hash buckets as shown in the Figure . **DeepLSH** have been conducted on a large stack trace dataset and performed on state-of-the-art similarity measures proposed to tackle the crash deduplication problem:
@@ -12,6 +15,10 @@ In this work, we aim at detecting for a crash report its candidate near-duplicat
 - Lerch and Mezini [[Paper](https://files.inria.fr/sachaproject/htdocs//lerch2013.pdf)]
 - Moroo et al. [[Paper](http://ksiresearch.org/seke/seke17paper/seke17paper_135.pdf)]
 - TraceSIM [[Paper](https://arxiv.org/pdf/2009.12590.pdf)]
+
+## Contributions and Main Findings
+
+## How DeepLSH works? 
 
 ![test](code/Images/Images-paper/Test-Phase.png)
 
